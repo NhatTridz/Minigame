@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style>
+    body {
+      position: relative;
+      height: 100vh;
+      text-align: center;
+      background: linear-gradient(135deg, #FFEBB2, #FFD6A5);
+      background-size: 50px 50px;
+    }
+    .box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 3px solid #5E382E;
+      border-radius: 30px;
+      height: 330px;
+      width: 300px;
+      background-color: #CA3333;
+      box-shadow: 
+      0 0 10px #552B2B, 
+      0 0 20px #3F1919;
+      animation: mo 2s ease forwards;
+    }
+    @keyframes mo {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    .box h2{
+      font-size: 27px;
+      margin: 20px 5px;
+      color: #FFED99;
+      border: 2px solid #A22A2A;
+      border-radius: 10px;
+      opacity: 0;
+      background-color: #C53737;
+      text-shadow: 
+      0 0 10px #FFDC85;
+      animation: ho2 2s ease-in 0.5s forwards;
+    }
+    @keyframes ho2 {
+      0% {transform: translateY(-500px); opacity: 0;}
+      75% {transform: translateY(0); opacity: 0.5;}
+      85% {transform: translateY(-15px); opacity: 0.7;}
+      100% {transform: translateY(0); opacity: 1;}
+    }
+    .box #quay {
+      font-size: 23px;
+      color: #381111;
+      font-weight: bold;
+      text-shadow: 
+      0 0 10px #532D2D,
+      0 0 15px #6C3131;
+    }
+    .box button {
+      padding: 14px 50px;
+      margin-top: 20px;
+      border: 2px solid #5E382E;
+      border-radius: 10px;
+      box-shadow: 
+      0 0 10px #FF7E7E, 
+      0 0 20px #CD5F5F;
+      opacity: 0;
+      transition: background-color 1s ease;
+      animation: bu 1.5s ease 2s infinite
+    }
+    @keyframes bu {
+      0% {transform: scale(1); opacity: 0.9;}
+      50% {transform: scale(1.2);}
+      100% {transform: scale(1); opacity: 1;}
+    }
+    .box button:hover {
+      background: linear-gradient(to right, #FF4B4B,  #FF1414);
+      color: #FFEDB9;
+    }
+    .box #kq {
+      font-size: 20px;
+      font-weight: bold;
+      color: #ACA89A;
+      text-shadow: 
+      0 0 10px #8B8873 ,
+      0 0 20px #D0CDB4;
+    }
+    .box #an {
+      font-size: 20px;
+      font-weight: bold;
+      color: #FFFB16;
+      text-shadow: 
+      0 0 10px #FADD00,
+      0 0 20px #C2AB00;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+  <h2>Vòng quay may mắn</h2>
+  <p id="quay">Mục tiêu: quay ra số 6</p>
+  <button onclick="bamm()">Quay</button>
+  <p id="kq"></p>
+  <div id="an"></div>
+  </div>
+  <div class="tron"></div>
+  <script>
+      let soquay = Math.floor(Math.random() * 10) + 1;
+      document.getElementById("quay").innerText = "Mục tiêu: quay ra số " + soquay;
+    function bamm() {
+      let so = Math.floor(Math.random() * 10) + 1;
+      let text1 = "Số may mắn là số " + so;
+      let text2 = ""
+      if (so === soquay) {
+        text2 += "<br>Chúc mừng bạn đã quay ra số may mắn!";
+      }
+      document.getElementById("kq").innerHTML = text1;
+      document.getElementById("an").innerHTML = text2;
+    }
+    </script>
+   </body>
+ </html>
